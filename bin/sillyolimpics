@@ -1,0 +1,12 @@
+from sillyolimpics import *
+
+frigio = Athlete()
+
+print frigio
+
+#frigio = Athlete('frigio')
+#frigio_cts = CTS(frigio)
+
+
+
+
