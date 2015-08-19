@@ -1,2 +1,2 @@
 # sillyolimpics
-A python library to evaluate sport training zones using an hart rate monitor or power meter
+A python library to evaluate sport training zones using an heart rate monitor or power meter
