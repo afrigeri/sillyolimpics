@@ -1,11 +1,14 @@
-from sillyolimpics import *
+#!/usr/bin/python
 
-frigio = Athlete()
+from sillyolimpics.sillyolimpics import Athlete,Zone
+from sillyolimpics.ts import *
 
-print frigio
 
-#frigio = Athlete('frigio')
-#frigio_cts = CTS(frigio)
+frigio = Athlete('frigio2')
+
+CTS.setAthlete(frigio,frigio.ctsthr)
+
+CTS.listZones()
 
 
 
