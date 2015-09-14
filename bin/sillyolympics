@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-from sillyolimpics.sillyolimpics import Athlete,Zone
-from sillyolimpics.ts import *
+from sillyolympics import Athlete,Zone
+from sillyolympics.ts import *
 
 
 frigio = Athlete('frigio2')
