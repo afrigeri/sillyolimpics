@@ -1,7 +1,8 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
-from sillyolympics.sillyolympics import Athlete,Zone
-from sillyolympics.ts import *
+from sillyolympics import Athlete,Zone
+from sillyolympics import ts
+
 
 
 froomey = Athlete('froome')

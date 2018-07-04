@@ -1,6 +1,6 @@
 from datetime import date,datetime
 import os, ConfigParser
-
+#from ts import MCM
 
 
 def read_config(conf_file):
