@@ -1,12 +1,12 @@
 #!/usr/bin/python
 
-from sillyolympics import Athlete,Zone
+from sillyolympics.sillyolympics import Athlete,Zone
 from sillyolympics.ts import *
 
 
-frigio = Athlete('frigio2')
+froomey = Athlete('froome')
 
-CTS.setAthlete(frigio,frigio.ctsthr)
+CTS.setAthlete(froomey,froomey.maxhr)
 
 CTS.listZones()
 

@@ -2,7 +2,7 @@
 Training Systems
 """
 
-from sillyolimpics import TS,Zone
+from sillyolympics import TS,Zone
 
 
 CTS = TS("CTS: Carmichael Training Systems")
@@ -43,8 +43,37 @@ PI.setRPE(10)
 CTS.addZone(PI)
 
 
+MCM = TS("McMillan Running")
 
+RJ = Zone("Recovery Jog")
+RJ.setHR(60,70,"MAXHR")
+RJ.setRPE(2)
+MCM.addZone(RJ)
 
+LR = Zone("Long Run")
+LR.setHR(60,85,"MAXHR")
+LR.setRPE(2)
+MCM.addZone(LR)
+
+ER = Zone("Easy Run")
+ER.setHR(60,85,"MAXHR")
+ER.setRPE(2)
+MCM.addZone(ER)
+
+SS = Zone("Steady State Run")
+SS.setHR(83,87,"MAXHR")
+SS.setRPE(3)
+MCM.addZone(SS)
+
+TR = Zone("Tempo Run")
+TR.setHR(85,90,"MAXHR")
+TR.setRPE(4)
+MCM.addZone(TR)
+
+TI = Zone("Tempo Interval")
+TI.setHR(87,92,"MAXHR")
+TI.setRPE(4)
+MCM.addZone(TI)
 
 
 

@@ -52,6 +52,7 @@ class Athlete:
         """ Update from the secton s"""
         self.setName(self,(self.c.get(s, 'name'),self.c.get(s, 'surname')))
         self.setCTSTHR(self.c.get(s, 'CTSTHR'))
+        self.setMaxHR(self.c.get(s,'MaxHR'))
         self.setAge(self.c.get(s, 'Birthday'))
             
     def setName(self,name,surname):
@@ -68,6 +69,9 @@ class Athlete:
         
     def setJFLT(self,JFLTHR):
         self.setJFLTHR = JFLTHR
+
+    def setMaxHR(self,MaxHR):
+	self.maxhr = int(MaxHR)
         
     def __repr__(self):
         return self.name,self.surname,self.age
