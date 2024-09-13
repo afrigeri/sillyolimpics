@@ -2,7 +2,7 @@
 Training Systems
 """
 
-from sillyolimpics import TS,Zone
+from . import TS,Zone
 
 
 CTS = TS("CTS: Carmichael Training Systems")

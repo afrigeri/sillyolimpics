@@ -1,10 +1,10 @@
 from datetime import date,datetime
-import os, ConfigParser
+import os, configparser
 
 
 
 def read_config(conf_file):
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     conf = os.path.join(os.path.expanduser("~/.sillyolympics/"), conf_file )
     config.read(conf)
     return config
@@ -83,20 +83,18 @@ class Zone:
         self.maxhr_p = None
        
     def setHR(self,minhr_p,maxhr_p,ref):
-           #if ref == 'CTSTHR':
-           #       hr_ref = athlete.ctsthr
-		self.minhr_p = minhr_p  
-		self.maxhr_p = maxhr_p
+        self.minhr_p = minhr_p  
+        self.maxhr_p = maxhr_p
     def setRPM(self,minrpm,maxrpm):
-		self.minrpm = minrpm
-		self.maxrpm = maxrpm   
+        self.minrpm = minrpm
+        self.maxrpm = maxrpm   
     def setRPE(self,rpe):
-           self.rpe = rpe
+        self.rpe = rpe
     def getRPE(self):
-         print self.rpe
+        print(self.rpe)
     def __str__(self):           
-           msg = "%s\n  Hearth rate: %d-%d \n  Cadence: %d-%d\n  RPE: %d" %(self.name,self.minhr,self.maxhr,self.minrpm,self.maxrpm,self.rpe)
-           return msg
+        msg = "%s\n  Hearth rate: %d-%d \n  Cadence: %d-%d\n  RPE: %d" %(self.name,self.minhr,self.maxhr,self.minrpm,self.maxrpm,self.rpe)
+        return msg
                      
 
 class TS:
@@ -104,8 +102,8 @@ class TS:
         
     """
     def __init__(self,name):
-		self.name = name
-		self.zones = []
+        self.name = name
+        self.zones = []
   
     def setAthlete(self,athlete,hr_ref):
             self.athlete = athlete
@@ -119,11 +117,11 @@ class TS:
                 z.maxhr = int(round(z.maxhr_p / 100.0 * hr_ref))
   
     def addZone(self,zone):
-		self.zones.append(zone)
+        self.zones.append(zone)
   
     def listZones(self):
         for z in self.zones: 
-            print z
+           print(z)
 
 
 
