@@ -56,6 +56,26 @@ REI.addZone(Z4)
 Z5 = Zone("Zone5: anaerobic")
 REI.addZone(Z5)
 
+# Polar
+POLAR = TS("POLAR")
+
+Z1 = Zone("Zone1: Very light") 
+Z1.setHR(50,60)
+POLAR.addZone(Z1)
+Z2 = Zone("Zone2: Light")
+Z2.setHR(60,70)
+POLAR.addZone(Z2)
+Z3 = Zone("Zone3: Moderate") 
+Z3.setHR(70,80)
+POLAR.addZone(Z3)
+Z4 = Zone("Zone4: Hard") 
+Z4.setHR(80,90)
+POLAR.addZone(Z4)
+Z5 = Zone("Zone5: Maximum") 
+Z5.setHR(90,100)
+POLAR.addZone(Z5)
+
+
 
 
 
