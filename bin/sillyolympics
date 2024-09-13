@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 
+"""Module providing a function printing python version."""
+
 import sillyolympics as so
 
-frigio = so.Athlete('frigio2')
+frigio = so.Athlete("frigio2")
 
-#CTS.setAthlete(frigio,frigio.ctsthr)
-#CTS.listZones()
-
-
-
-
+# CTS.setAthlete(frigio,frigio.ctsthr)
+# CTS.listZones()

@@ -1,15 +1,14 @@
-from datetime import date,datetime
+from datetime import date, datetime
 import os, configparser
-
 
 
 def read_config(conf_file):
     config = configparser.ConfigParser()
-    conf = os.path.join(os.path.expanduser("~/.sillyolympics/"), conf_file )
+    conf = os.path.join(os.path.expanduser("~/.sillyolympics/"), conf_file)
     config.read(conf)
     return config
-    
-    '''
+
+    """
     for loc in os.curdir, os.path.expanduser(".sillyolympics/"), "/etc/myproject/":
         conf = os.path.join(loc,"sillyolimpics.conf")
         try:
@@ -19,14 +18,15 @@ def read_config(conf_file):
             print "not a valid file ...."
             #pass
         print conf    
-    '''    
+    """
+
 
 class Athlete:
     """The Athlete class.
 
     you can define an athlete here.  If no argument is given, the Athlete is
     is define from the default configuration file.
-    
+
     .. note::
 
        An example of intersphinx is this: you **cannot** use :mod:`pickle` on this class.
@@ -36,95 +36,103 @@ class Athlete:
      Kwargs:
            bar (str): Really, same as foo.
 
-        """
+    """
 
-    def __init__(self,nickname='DEFAULT'):
-        self.c = read_config('athletes.conf')
+    def __init__(self, nickname="DEFAULT"):
+        self.c = read_config("athletes.conf")
         secs = self.c.sections()
         for s in secs:
-            if nickname == 'DEFAULT':
+            if nickname == "DEFAULT":
                 s = secs[0]
                 self._updateFromConfig(s)
-            if s == nickname:   
+            if s == nickname:
                 self._updateFromConfig(s)
-    
-    def _updateFromConfig(self,s):
-        """ Update from the secton s"""
-        self.setName(self,(self.c.get(s, 'name'),self.c.get(s, 'surname')))
-        self.setCTSTHR(self.c.get(s, 'CTSTHR'))
-        self.setAge(self.c.get(s, 'Birthday'))
-            
-    def setName(self,name,surname):
+
+    def _updateFromConfig(self, s):
+        """Update from the secton s"""
+        self.setName(self, (self.c.get(s, "name"), self.c.get(s, "surname")))
+        self.setCTSTHR(self.c.get(s, "CTSTHR"))
+        self.setAge(self.c.get(s, "Birthday"))
+
+    def setName(self, name, surname):
         self.name = name
         self.surname = surname
-        
-    def setAge(self,birthday):        
-        born = datetime.strptime( birthday , "%Y/%m/%d" )
+
+    def setAge(self, birthday):
+        born = datetime.strptime(birthday, "%Y/%m/%d")
         today = date.today()
-        self.age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))
-        
-    def setCTSTHR(self,CTSTHR):
+        self.age = (
+            today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+        )
+
+    def setCTSTHR(self, CTSTHR):
         self.ctsthr = int(CTSTHR)
-        
-    def setJFLT(self,JFLTHR):
+
+    def setJFLT(self, JFLTHR):
         self.setJFLTHR = JFLTHR
-        
+
     def __repr__(self):
-        return self.name,self.surname,self.age
-        
+        return self.name, self.surname, self.age
+
     def __str__(self):
-        return "%d"%self.age
-           
-	
+        return "%d" % self.age
+
+
 class Zone:
-    def __init__(self,name):
+    def __init__(self, name):
         self.name = name
         self.minhr_p = None
         self.maxhr_p = None
-       
-    def setHR(self,minhr_p,maxhr_p,ref):
-        self.minhr_p = minhr_p  
+
+    def setHR(self, minhr_p, maxhr_p, ref):
+        self.minhr_p = minhr_p
         self.maxhr_p = maxhr_p
-    def setRPM(self,minrpm,maxrpm):
+
+    def setRPM(self, minrpm, maxrpm):
         self.minrpm = minrpm
-        self.maxrpm = maxrpm   
-    def setRPE(self,rpe):
+        self.maxrpm = maxrpm
+
+    def setRPE(self, rpe):
         self.rpe = rpe
+
     def getRPE(self):
         print(self.rpe)
-    def __str__(self):           
-        msg = "%s\n  Hearth rate: %d-%d \n  Cadence: %d-%d\n  RPE: %d" %(self.name,self.minhr,self.maxhr,self.minrpm,self.maxrpm,self.rpe)
+
+    def __str__(self):
+        msg = "%s\n  Hearth rate: %d-%d \n  Cadence: %d-%d\n  RPE: %d" % (
+            self.name,
+            self.minhr,
+            self.maxhr,
+            self.minrpm,
+            self.maxrpm,
+            self.rpe,
+        )
         return msg
-                     
+
 
 class TS:
-    """Training System Class
-        
-    """
-    def __init__(self,name):
+    """Training System Class"""
+
+    def __init__(self, name):
         self.name = name
         self.zones = []
-  
-    def setAthlete(self,athlete,hr_ref):
-            self.athlete = athlete
-            self._updateHR(hr_ref)
-  
-    def _updateHR(self,hr_ref):         
-        for z in self.zones:            
-                if not z.minhr_p: z.minhr_p = 0
-                z.minhr = int(round(z.minhr_p / 100.0 * hr_ref))
-                if not z.maxhr_p: z.maxhr_p = 0
-                z.maxhr = int(round(z.maxhr_p / 100.0 * hr_ref))
-  
-    def addZone(self,zone):
+
+    def setAthlete(self, athlete, hr_ref):
+        self.athlete = athlete
+        self._updateHR(hr_ref)
+
+    def _updateHR(self, hr_ref):
+        for z in self.zones:
+            if not z.minhr_p:
+                z.minhr_p = 0
+            z.minhr = int(round(z.minhr_p / 100.0 * hr_ref))
+            if not z.maxhr_p:
+                z.maxhr_p = 0
+            z.maxhr = int(round(z.maxhr_p / 100.0 * hr_ref))
+
+    def addZone(self, zone):
         self.zones.append(zone)
-  
+
     def listZones(self):
-        for z in self.zones: 
-           print(z)
-
-
-
-
-
-
+        for z in self.zones:
+            print(z)
