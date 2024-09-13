@@ -42,7 +42,19 @@ PI.setHR(100,150,"CTSTHR")
 PI.setRPE(10)
 CTS.addZone(PI)
 
+# How to Train Using Heart Rate Zones
+REI = TS("REI")
 
+Z1 = Zone("Zone1: recovery/easy")
+REI.addZone(Z1)
+Z2 = Zone("Zone2: aerobic/base")
+REI.addZone(Z2)
+Z3 = Zone("Zone3: tempo")
+REI.addZone(Z3)
+Z4 = Zone("Zone1: lactate threshold")
+REI.addZone(Z4)
+Z5 = Zone("Zone1: anaerobic")
+REI.addZone(Z5)
 
 
 
