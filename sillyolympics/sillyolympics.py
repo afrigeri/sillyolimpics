@@ -5,12 +5,12 @@ import os, ConfigParser
 
 def read_config(conf_file):
     config = ConfigParser.ConfigParser()
-    conf = os.path.join(os.path.expanduser("~/.sillyolimpics/"), conf_file )
+    conf = os.path.join(os.path.expanduser("~/.sillyolympics/"), conf_file )
     config.read(conf)
     return config
     
     '''
-    for loc in os.curdir, os.path.expanduser(".sillyolimpics/"), "/etc/myproject/":
+    for loc in os.curdir, os.path.expanduser(".sillyolympics/"), "/etc/myproject/":
         conf = os.path.join(loc,"sillyolimpics.conf")
         try:
             print "reading: ",conf

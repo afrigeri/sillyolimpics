@@ -35,6 +35,8 @@ setup(
     author='Alessandro Frigeri',
     author_email='alessandro.frigeri@gmail.com',
 
+    scripts=['bin/sillyolympics'],
+
     # Choose your license
     license='GPL',
 
