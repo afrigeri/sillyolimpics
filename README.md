@@ -4,3 +4,4 @@ A python library to evaluate sport training zones using an heart rate monitor or
 Covers 
   * Carmichael Trainin System
   * Joe Friel Trainin System 
+  * REI article on training zone
