@@ -51,9 +51,9 @@ Z2 = Zone("Zone2: aerobic/base")
 REI.addZone(Z2)
 Z3 = Zone("Zone3: tempo")
 REI.addZone(Z3)
-Z4 = Zone("Zone1: lactate threshold")
+Z4 = Zone("Zone4: lactate threshold")
 REI.addZone(Z4)
-Z5 = Zone("Zone1: anaerobic")
+Z5 = Zone("Zone5: anaerobic")
 REI.addZone(Z5)
 
 
