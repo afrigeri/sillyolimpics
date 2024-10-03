@@ -2,9 +2,21 @@
 
 """Module providing a function printing python version."""
 
-import sillyolympics as so
+#import sillyolympics as so
+from sillyolympics import sillyolympics as so
+from sillyolympics.ts import *
 
 frigio = so.Athlete("frigio2")
 
-# CTS.setAthlete(frigio,frigio.ctsthr)
+frigio.setMaxHR(187)
+
+myTZS = TZS
+TZS.setAthlete(frigio,187)
+TZS.listZones()
+
+myK = K
+TZS.setAthlete(frigio,187)
+TZS.listZones()
+
+#myCTS.setAthlete(athlete=frigio,hr_ref=187)
 # CTS.listZones()

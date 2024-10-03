@@ -47,6 +47,7 @@ class Athlete:
                 self._updateFromConfig(s)
             if s == nickname:
                 self._updateFromConfig(s)
+        self.maxHR = None
 
     def _updateFromConfig(self, s):
         """Update from the secton s"""
@@ -65,6 +66,13 @@ class Athlete:
             today.year - born.year - ((today.month, today.day) < (born.month, born.day))
         )
 
+    def setMaxHR(self, MAXHR):
+        self.maxHR = int(MAXHR)
+    
+    def getLTHR(self, method='garmin'):
+        if method == 'garmin':
+            return self.maxHR * 0.90
+    
     def setCTSTHR(self, CTSTHR):
         self.ctsthr = int(CTSTHR)
 
@@ -99,13 +107,13 @@ class Zone:
         print(self.rpe)
 
     def __str__(self):
-        msg = "%s\n  Hearth rate: %d-%d \n  Cadence: %d-%d\n  RPE: %d" % (
+        msg = "%s\n  Hearth rate: %d-%d " % (
             self.name,
             self.minhr,
             self.maxhr,
-            self.minrpm,
-            self.maxrpm,
-            self.rpe,
+            #self.minrpm,
+            #self.maxrpm,
+            #self.rpe,
         )
         return msg
 

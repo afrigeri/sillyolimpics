@@ -2,7 +2,10 @@
 Training Systems
 """
 
-from . import TS,Zone
+#from . import TS,Zone
+
+#from  import TS, Zone
+from sillyolympics.sillyolympics import *
 
 
 CTS = TS("CTS: Carmichael Training Systems")
@@ -60,22 +63,52 @@ REI.addZone(Z5)
 POLAR = TS("POLAR")
 
 Z1 = Zone("Zone1: Very light") 
-Z1.setHR(50,60)
+Z1.setHR(50,60,"a")
 POLAR.addZone(Z1)
 Z2 = Zone("Zone2: Light")
-Z2.setHR(60,70)
+Z2.setHR(60,70,"a")
 POLAR.addZone(Z2)
 Z3 = Zone("Zone3: Moderate") 
-Z3.setHR(70,80)
+Z3.setHR(70,80,"a")
 POLAR.addZone(Z3)
 Z4 = Zone("Zone4: Hard") 
-Z4.setHR(80,90)
+Z4.setHR(80,90,"a")
 POLAR.addZone(Z4)
 Z5 = Zone("Zone5: Maximum") 
-Z5.setHR(90,100)
+Z5.setHR(90,100,"a")
 POLAR.addZone(Z5)
 
+# Three zone system
+TZS = TS("Three Zone System")
 
+Z1 = Zone("Zone1: Easy") 
+Z1.setHR(50,60,"a")
+TZS.addZone(Z1)
+Z2 = Zone("Zone2: Threshold")
+Z2.setHR(60,70,"a")
+TZS.addZone(Z2)
+Z3 = Zone("Zone3: Over Threshold") 
+Z3.setHR(70,80,"a")
+TZS.addZone(Z3)
+
+# Karvonen
+Karvonen = TS("Karvonen, Five Zone System")
+
+Z1 = Zone("Zone 1")
+Z1.setHR(50,60,"a")
+Karvonen.addZone(Z1)
+Z2 = Zone("Zone 2")
+Z1.setHR(60,70,"a")
+Karvonen.addZone(Z2)
+Z3 = Zone("Zone 3")
+Z1.setHR(70,80,"a")
+Karvonen.addZone(Z3)
+Z4 = Zone("Zone 4")
+Z1.setHR(80,90,"a")
+Karvonen.addZone(Z4)
+Z5 = Zone("Zone 5")
+Z1.setHR(90,100,"a")
+Karvonen.addZone(Z5)
 
 
 
